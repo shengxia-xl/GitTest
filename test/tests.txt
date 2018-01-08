@@ -1,0 +1,19 @@
+int FindStr(char* SrcStr, int ScrStrLen, char * DstStr,int setoff)
+{
+	int DstLen = setoff;
+	if (setoff > strlen(DstStr))
+		return -2;
+	for (int i = 0; i < ScrStrLen; i++)
+	{
+		if (SrcStr[i] == DstStr[0])
+		for (int j = 0; j < DstLen; j++)
+		{
+			if (SrcStr[j + i] != DstStr[j])
+				break;
+			if (j == DstLen - 1)
+				return i + j + 1;
+		}
+	}
+	return -1;
+}
+void
